@@ -32,6 +32,11 @@
   flex-direction: column;
   gap: 32px;
   grid-row-start: 2;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
 }
 
 .main ol {
@@ -116,6 +121,7 @@ button.secondary {
   grid-row-start: 3;
   display: flex;
   gap: 24px;
+  justify-content: center;
 }
 
 .footer a {
@@ -184,5 +190,82 @@ button.secondary {
 @media (prefers-color-scheme: dark) {
   .logo {
     filter: invert();
+  }
+}
+
+/* Magic in Progress Styles */
+.constructionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 40px;
+  border-radius: 16px;
+  background-color: var(--gray-alpha-100);
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.constructionContainer::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  background: radial-gradient(circle at center, transparent 0%, transparent 70%, rgba(147, 112, 219, 0.1) 100%);
+  z-index: -1;
+  opacity: 0.6;
+  animation: pulse 4s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 0.7; }
+  100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(45deg, #9C27B0, #3F51B5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+  color: rgba(var(--gray-rgb), 0.8);
+}
+
+.timeline {
+  margin-top: 16px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background-color: rgba(var(--gray-rgb), 0.03);
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid rgba(147, 112, 219, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 600px) {
+  .constructionContainer {
+    padding: 24px;
+  }
+  
+  .title {
+    font-size: 28px;
+  }
+  
+  .description {
+    font-size: 16px;
   }
 }
